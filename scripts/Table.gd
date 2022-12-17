@@ -14,8 +14,13 @@ var enemy_paper_total = 5
 var enemy_rock_total = 5
 var enemy_scissors_total = 5
 
-var enemy_choice
+var enemy_choice = [7,7,7]
 
+var deck = [7,7,7,7,7,7,7,7,7,7,7,7,7,7,7] 
+var enemyHand = [7,7,7]
+var deck_position = 0
+
+var played = false
 var player_deck
 var enemy_deck
 var mouse_over = false

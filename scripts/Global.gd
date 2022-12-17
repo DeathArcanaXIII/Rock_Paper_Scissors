@@ -1,64 +1,10 @@
 extends Node
 
 # Called when the node enters the scene tree for the first time.
-func _randomize_enemy_cards():
-	randomize()
-	Table.enemy_cards = randi() % Table.cards.size()
 func _enemy_deck_count_fix():
 	if(Table.enemy_deck_size == -1):
 		Table.enemy_deck_size = 0
-func _players_choices():
-	if (Table.player_choice == Table.cards.Paper && Table.enemy_cards == Table.cards.Paper):
-		Table.player_choice = 12
-		Table.enemy_deck_size -= 1
-		_randomize_enemy_cards()
-		print(Table.empate)
-	elif (Table.player_choice == Table.cards.Paper && Table.enemy_cards == Table.cards.Rock):
-		Table.player_choice = 12
-		Table.score_player += 1
-		Table.enemy_deck_size -= 1
-		_randomize_enemy_cards()
-		print(Table.win_p1)
-	elif (Table.player_choice == Table.cards.Paper && Table.enemy_cards == Table.cards.Scissors):
-		Table.player_choice = 12
-		Table.score_enemy += 1
-		Table.enemy_deck_size -= 1
-		_randomize_enemy_cards()
-		print(Table.win_p2)
-	elif (Table.player_choice == Table.cards.Rock && Table.enemy_cards == Table.cards.Paper):
-		Table.player_choice = 12
-		Table.score_enemy += 1
-		Table.enemy_deck_size -= 1
-		_randomize_enemy_cards()
-		print(Table.win_p2)
-	elif (Table.player_choice == Table.cards.Rock && Table.enemy_cards == Table.cards.Rock):
-		Table.player_choice = 12
-		Table.enemy_deck_size -= 1
-		_randomize_enemy_cards()
-		print(Table.empate)
-	elif (Table.player_choice == Table.cards.Rock && Table.enemy_cards == Table.cards.Scissors):
-		Table.player_choice = 12
-		Table.score_player += 1
-		Table.enemy_deck_size -= 1
-		_randomize_enemy_cards()
-		print(Table.win_p1)
-	elif (Table.player_choice == Table.cards.Scissors && Table.enemy_cards == Table.cards.Paper):
-		Table.player_choice = 12
-		Table.score_player += 1
-		Table.enemy_deck_size -= 1
-		_randomize_enemy_cards()
-		print(Table.win_p1)
-	elif(Table.player_choice == Table.cards.Scissors && Table.enemy_cards == Table.cards.Rock):
-		Table.player_choice = 12
-		Table.score_enemy += 1
-		Table.enemy_deck_size -= 1
-		_randomize_enemy_cards()
-		print(Table.win_p2)
-	elif (Table.player_choice == Table.cards.Scissors && Table.enemy_cards == Table.cards.Scissors):
-		Table.player_choice = 12
-		Table.enemy_deck_size -= 1
-		_randomize_enemy_cards()
-		print(Table.empate)
+
 		
 func _instance_result():
 	var result = Table.result_00.instance()
@@ -81,7 +27,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	_enemy_deck_count_fix()
-	_players_choices()
 	_instance_result()
 	pass
 

@@ -1,9 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://sprites/Enemy_Back.png" type="Texture" id=1]
-[ext_resource path="res://scripts/Enemy_Paper.gd" type="Script" id=2]
 
 [node name="Enemy_Cards" type="Sprite"]
 light_mask = 4
 texture = ExtResource( 1 )
-script = ExtResource( 2 )
