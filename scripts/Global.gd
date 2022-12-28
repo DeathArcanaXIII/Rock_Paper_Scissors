@@ -1,7 +1,7 @@
 extends Node
 # Called when the node enters the scene tree for the first time.
 func _enemy_deck_count_fix():
-	if(Table.enemy_deck_size == -1):
+	if(Table.enemy_deck_size == -3):
 		Table.enemy_deck_size = 0
 func _result_check():
 	if(Table.result == true):

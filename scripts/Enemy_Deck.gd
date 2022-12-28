@@ -47,6 +47,8 @@ func _instance_enemy_hand():
 		for n in range (0,3,+1): #Colocar as cartas do topo na mão do jogador e salva a ultima posição
 				Table.enemyHand[n] = Table.deck[Table.deck_position]
 				Table.deck_position += 1
+				if(Table.deck_position == 15):
+					Table.deck_position = 0
 		randomize()
 		for n in range (0,3,+1): #Instanceia as cartas da mão do jogador
 				if (Table.enemyHand[n] == Table.cards.Paper):
