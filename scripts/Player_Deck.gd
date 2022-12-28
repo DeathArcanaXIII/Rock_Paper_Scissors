@@ -53,7 +53,6 @@ func _instance_player_hand(): #Ao clicar checa a validez da jogada e gera 3 cart
 				Table.actual_hand += 1#"Aumenta" uma carta na mão
 				Table.draw_three += 1#confirma se 3 cartas foram compradas
 				Table.paper_total -= 1
-		print(playerHand)
 func _drawed_3():#Ajusta as posições das cartas
 	if(Table.draw_three == 3):
 		Table.xAxys = 512

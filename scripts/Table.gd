@@ -18,7 +18,9 @@ var enemy_choice = [7,7,7]
 
 var deck = [7,7,7,7,7,7,7,7,7,7,7,7,7,7,7] 
 var enemyHand = [7,7,7]
-var deck_position = 0
+var deck_position = -0
+var pick
+var result = false
 
 var played = false
 var player_deck

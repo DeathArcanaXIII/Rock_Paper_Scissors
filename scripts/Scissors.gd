@@ -10,6 +10,8 @@ var mouse_over = false
 func _delete_card():
 	if(mouse_over == true && Input.is_action_just_pressed("mouse_left_click")):
 		Table.player_choice = Table.cards.Scissors
+		Table.result = true
+		Table.played = true
 		self.queue_free()
 		Table.actual_hand -= 1
 		Table.draw_three -= 1

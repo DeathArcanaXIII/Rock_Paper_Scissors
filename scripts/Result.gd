@@ -10,23 +10,24 @@ var p1 = "Parabéns voce venceu!"
 var p2 = "Voce perdeu :()"
 # var b = "text"
 func _GUI_Result():
-		if (Table.player_choice == Table.cards.Paper && Table.enemy_cards == Table.cards.Paper):
+	if(Table.result == true):
+		if (Table.player_choice == Table.cards.Paper && Table.pick == Table.cards.Paper):
 			self.text = str(empate)
-		elif (Table.player_choice == Table.cards.Paper && Table.enemy_cards == Table.cards.Rock):
+		elif (Table.player_choice == Table.cards.Paper && Table.pick == Table.cards.Rock):
 			self.text = str(win_p1)
-		elif (Table.player_choice == Table.cards.Paper && Table.enemy_cards == Table.cards.Scissors):
+		elif (Table.player_choice == Table.cards.Paper && Table.pick == Table.cards.Scissors):
 			self.text = str(win_p2)
-		elif (Table.player_choice == Table.cards.Rock && Table.enemy_cards == Table.cards.Paper):
+		elif (Table.player_choice == Table.cards.Rock && Table.pick == Table.cards.Paper):
 			self.text = str(win_p2)
-		elif (Table.player_choice == Table.cards.Rock && Table.enemy_cards == Table.cards.Rock):
+		elif (Table.player_choice == Table.cards.Rock && Table.pick == Table.cards.Rock):
 			self.text = str(empate)
-		elif (Table.player_choice == Table.cards.Rock && Table.enemy_cards == Table.cards.Scissors):
+		elif (Table.player_choice == Table.cards.Rock && Table.pick == Table.cards.Scissors):
 			self.text = str(win_p1)
-		elif (Table.player_choice == Table.cards.Scissors && Table.enemy_cards == Table.cards.Paper):
+		elif (Table.player_choice == Table.cards.Scissors && Table.pick == Table.cards.Paper):
 			self.text = str(win_p1)
-		elif (Table.player_choice == Table.cards.Scissors && Table.enemy_cards == Table.cards.Rock):
+		elif (Table.player_choice == Table.cards.Scissors && Table.pick == Table.cards.Rock):
 			self.text = str(win_p2)
-		elif (Table.player_choice == Table.cards.Scissors && Table.enemy_cards == Table.cards.Scissors):
+		elif (Table.player_choice == Table.cards.Scissors && Table.pick == Table.cards.Scissors):
 			self.text = str(empate)
 
 func _check_winner():

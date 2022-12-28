@@ -1,11 +1,43 @@
 extends Node
-
 # Called when the node enters the scene tree for the first time.
 func _enemy_deck_count_fix():
 	if(Table.enemy_deck_size == -1):
 		Table.enemy_deck_size = 0
-
-		
+func _result_check():
+	if(Table.result == true):
+		if(Table.pick == Table.cards.Paper && Table.player_choice == Table.cards.Paper):
+			print("Empate")
+			Table.result = false
+		elif(Table.pick == Table.cards.Rock && Table.player_choice == Table.cards.Rock):
+			print("Empate")
+			Table.result = false
+		elif(Table.pick == Table.cards.Scissors && Table.player_choice == Table.cards.Scissors):
+			print("Empate")
+			Table.result = false
+		elif(Table.pick == Table.cards.Paper && Table.player_choice == Table.cards.Rock):
+			print("Você perdeu!")
+			Table.score_enemy += 1
+			Table.result = false
+		elif(Table.pick == Table.cards.Rock && Table.player_choice == Table.cards.Scissors):
+			print("Você perdeu!")
+			Table.score_enemy += 1
+			Table.result = false
+		elif(Table.pick == Table.cards.Scissors && Table.player_choice == Table.cards.Paper):
+			print("Você perdeu!")
+			Table.score_enemy += 1
+			Table.result = false
+		elif(Table.pick == Table.cards.Paper && Table.player_choice == Table.cards.Scissors):
+			print("Você ganhou!")
+			Table.score_player += 1
+			Table.result = false 
+		elif(Table.pick == Table.cards.Rock && Table.player_choice == Table.cards.Paper):
+			print("Você ganhou!")
+			Table.score_player += 1
+			Table.result = false 
+		elif(Table.pick == Table.cards.Scissors && Table.player_choice == Table.cards.Rock):
+			print("Você ganhou!")
+			Table.score_player += 1
+			Table.result = false 
 func _instance_result():
 	var result = Table.result_00.instance()
 	add_child(result)
@@ -28,5 +60,6 @@ func _ready():
 func _process(delta):
 	_enemy_deck_count_fix()
 	_instance_result()
+	_result_check()
 	pass
 
