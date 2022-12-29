@@ -4,18 +4,17 @@ extends Sprite
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var timer = 10
 var mouse_over = false
-
 # Called when the node enters the scene tree for the first time.
 func _delete_card():
 	if(mouse_over == true && Input.is_action_just_pressed("mouse_left_click")):
 		Table.player_choice = Table.cards.Paper
 		Table.result = true
 		Table.played = true
-		self.queue_free()
 		Table.actual_hand -= 1
 		Table.draw_three -= 1
+		self.queue_free()
+
 func _ready():
 	pass # Replace with function body.
 
