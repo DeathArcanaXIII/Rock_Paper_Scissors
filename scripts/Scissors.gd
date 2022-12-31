@@ -18,6 +18,8 @@ func _delete_card():
 		Table.draw_three -= 1
 		var dup = $Scissors.duplicate()
 		add_child(dup)
+		dup.z_index = Table.layer
+		Table.layer += 1
 		dup.set_global_position(Vector2(896,354))
 		$Scissors.queue_free()
 func _ready():

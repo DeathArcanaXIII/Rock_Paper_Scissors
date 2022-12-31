@@ -22,6 +22,8 @@ var deck_position = -0
 var pick
 var result = false
 
+var layer = 0
+
 var played = false
 var player_deck
 var enemy_deck
