@@ -4,11 +4,13 @@
 [ext_resource path="res://scripts/Enemy_Deck.gd" type="Script" id=2]
 [ext_resource path="res://scripts/Enemy_Deck_Size.gd" type="Script" id=3]
 
-[node name="Enemy_Deck" type="Sprite"]
+[node name="Main" type="Node2D"]
+
+[node name="Enemy_Deck" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
-[node name="Deck_Size" type="Label" parent="."]
+[node name="Deck_Size" type="Label" parent="Enemy_Deck"]
 anchor_top = -0.033
 anchor_right = 1.0
 anchor_bottom = 1.0

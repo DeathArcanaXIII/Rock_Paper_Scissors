@@ -1,20 +1,24 @@
-extends Sprite
+extends Node2D
 
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 var mouse_over = false
+var deleted = false
 # Called when the node enters the scene tree for the first time.
 func _delete_card():
-	if(mouse_over == true && Input.is_action_just_pressed("mouse_left_click")):
+	if(mouse_over == true && deleted == false && Input.is_action_just_pressed("mouse_left_click")):
 		Table.player_choice = Table.cards.Paper
 		Table.result = true
 		Table.played = true
+		deleted = true
 		Table.actual_hand -= 1
 		Table.draw_three -= 1
-		self.queue_free()
-
+		var dup = $Paper_Card.duplicate()
+		add_child(dup)
+		dup.set_global_position(Vector2(896,354))
+		$Paper_Card.queue_free()
 func _ready():
 	pass # Replace with function body.
 

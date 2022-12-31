@@ -55,6 +55,7 @@ func _instance_enemy_deck():
 func _ready():
 	_instance_player_deck()
 	_instance_enemy_deck()
+	
 	pass # Replace with function body.
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
