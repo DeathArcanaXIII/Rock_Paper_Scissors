@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Ajuda.gd" type="Script" id=1]
+[ext_resource path="res://sprites/Backgroud.png" type="Texture" id=2]
+
+[node name="Ajuda" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 587, 283 )
+texture = ExtResource( 2 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -218.0
+margin_top = -308.0
+margin_right = 216.0
+margin_bottom = 89.0
+text = "                          Bem-vindo a Rock Paper Scissors!
+					
+					                   -Como jogar-
+									
+   Clique no baralho para comprar 3 cartas, e clique na carta que queira jogar, após ficar sem cartas na mão, basta clicar novamente no baralho para comprar mais 3 cartas.
+
+ O baralho de ambos jogadores são compostos por 5 copias de cada tipo de carta, 5 papeis, 5 pedras e 5 tesouras, todas distribuidas aleatoriamente. 
+
+   O vencedor de cada rodada ganha 1 ponto, empates não geram pontos. Quando o baralho chegar a zero o jogo acaba, e o jogador com mais pontos ganha o jogo! Bom jogo!!!"
+
+[node name="Voltar" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -25.5
+margin_top = -10.0
+margin_right = 25.5
+margin_bottom = 10.0
+text = "Voltar"
+
+[connection signal="pressed" from="Voltar" to="." method="_on_Voltar_pressed"]

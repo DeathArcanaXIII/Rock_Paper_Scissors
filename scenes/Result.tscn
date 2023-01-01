@@ -5,8 +5,8 @@
 [node name="Result" type="Label"]
 anchor_right = 0.044
 anchor_bottom = 0.044
-margin_left = 672.0
+margin_left = 674.0
 margin_top = 320.0
-margin_right = 735.68
+margin_right = 737.68
 margin_bottom = 352.32
 script = ExtResource( 1 )
