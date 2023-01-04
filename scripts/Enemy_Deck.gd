@@ -37,7 +37,7 @@ func _show_enemy_pick(packed_scene):
 			paper.set_position(Vector2(384,225))
 			
 func _enemy_strongest_pick():
-	if(Table.score_player > 3 && Table.score_enemy < 3):
+	if(Table.score_player > Table.score_enemy):
 		if(Table.player_choice == Table.cards.Paper && Table.played == true):
 			if(Table.cards.Scissors in Table.enemyHand):
 				Table.pick = Table.cards.Scissors
@@ -102,25 +102,26 @@ func _enemy_strongest_pick():
 		all_cards_played = false
 				
 func _enemy_pick():
-	if(Table.played == true):
-		randomize()
-		var temp = randi() % Table.enemyHand.size()
-		Table.pick = Table.enemyHand[temp]
-		Table.enemyHand.pop_at(temp)
-		Table.enemy_actual_hand -= 1
-		Table.played = false
-		if(Table.pick == Table.cards.Paper):
-			_show_enemy_pick(paper_scene)
-		if(Table.pick == Table.cards.Rock):
-			_show_enemy_pick(rock_scene)
-		if(Table.pick == Table.cards.Scissors):
-			_show_enemy_pick(scissors_scene)
-			
-		if(Table.enemy_actual_hand == 0):
-			all_cards_played = true
-			Table.enemyHand = [7,7,7]
-		if(Table.enemy_actual_hand > 0):
-			all_cards_played = false
+	if(Table.score_player <= Table.score_enemy):
+		if(Table.played == true):
+			randomize()
+			var temp = randi() % Table.enemyHand.size()
+			Table.pick = Table.enemyHand[temp]
+			Table.enemyHand.pop_at(temp)
+			Table.enemy_actual_hand -= 1
+			Table.played = false
+			if(Table.pick == Table.cards.Paper):
+				_show_enemy_pick(paper_scene)
+			if(Table.pick == Table.cards.Rock):
+				_show_enemy_pick(rock_scene)
+			if(Table.pick == Table.cards.Scissors):
+				_show_enemy_pick(scissors_scene)
+				
+			if(Table.enemy_actual_hand == 0):
+				all_cards_played = true
+				Table.enemyHand = [7,7,7]
+			if(Table.enemy_actual_hand > 0):
+				all_cards_played = false
 
 func _re_instance_enemy_hand():
 	if(Table.actual_hand == 0 && all_cards_played == true):
