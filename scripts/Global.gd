@@ -1,9 +1,5 @@
 extends Node
 # Called when the node enters the scene tree for the first time.
-func _debug_button():
-	if(Input.is_action_just_pressed("DEBUG")):
-		get_tree().reload_current_scene()
-		get_tree().change_scene("res://scenes/Main Menu.tscn")
 func _enemy_deck_count_fix():
 	if(Table.enemy_deck_size == -3):
 		Table.enemy_deck_size = 0
@@ -66,6 +62,5 @@ func _process(delta):
 	_enemy_deck_count_fix()
 	_instance_result()
 	_result_check()
-	_debug_button()
 	pass
 

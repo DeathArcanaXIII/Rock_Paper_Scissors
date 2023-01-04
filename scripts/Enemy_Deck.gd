@@ -2,6 +2,10 @@ extends Sprite
 
 enum cards_2 {Paper = 0, Scissors = 2}
 
+func _debug_button():
+	if(Input.is_action_just_pressed("DEBUG")):
+		print(Table.enemyHand)
+
 var choice
 var all_cards_played = false
 var card_paper
@@ -31,7 +35,72 @@ func _show_enemy_pick(packed_scene):
 			var paper = scene.instance()
 			add_child(paper)
 			paper.set_position(Vector2(384,225))
-
+			
+func _enemy_strongest_pick():
+	if(Table.score_player > 3 && Table.score_enemy < 3):
+		if(Table.player_choice == Table.cards.Paper && Table.played == true):
+			if(Table.cards.Scissors in Table.enemyHand):
+				Table.pick = Table.cards.Scissors
+				Table.enemy_actual_hand -= 1
+				Table.played = false
+				Table.enemyHand.pop_at(Table.enemyHand.find(Table.cards.Scissors))
+				_show_enemy_pick(scissors_scene)
+			elif(Table.cards.Paper in Table.enemyHand):
+				Table.pick = Table.cards.Paper
+				Table.enemy_actual_hand -= 1
+				Table.played = false
+				Table.enemyHand.pop_at(Table.enemyHand.find(Table.cards.Paper))
+				_show_enemy_pick(paper_scene)
+			elif(Table.cards.Rock in Table.enemyHand):
+				Table.pick = Table.cards.Rock
+				Table.enemy_actual_hand -= 1
+				Table.played = false
+				Table.enemyHand.pop_at(Table.enemyHand.find(Table.cards.Rock))
+				_show_enemy_pick(rock_scene)
+		if(Table.player_choice == Table.cards.Rock && Table.played == true):
+			if(Table.cards.Paper in Table.enemyHand):
+				Table.pick = Table.cards.Paper
+				Table.enemy_actual_hand -= 1
+				Table.played = false
+				Table.enemyHand.pop_at(Table.enemyHand.find(Table.cards.Paper))
+				_show_enemy_pick(paper_scene)
+			elif(Table.cards.Rock in Table.enemyHand):
+				Table.pick = Table.cards.Rock
+				Table.enemy_actual_hand -= 1
+				Table.played = false
+				Table.enemyHand.pop_at(Table.enemyHand.find(Table.cards.Rock))
+				_show_enemy_pick(rock_scene)
+			elif(Table.cards.Scissors in Table.enemyHand):
+				Table.pick = Table.cards.Scissors
+				Table.enemy_actual_hand -= 1
+				Table.played = false
+				Table.enemyHand.pop_at(Table.enemyHand.find(Table.cards.Scissors))
+				_show_enemy_pick(scissors_scene)
+		if(Table.player_choice == Table.cards.Scissors && Table.played == true):
+			if(Table.cards.Rock in Table.enemyHand):
+				Table.pick = Table.cards.Rock
+				Table.enemy_actual_hand -= 1
+				Table.played = false
+				Table.enemyHand.pop_at(Table.enemyHand.find(Table.cards.Rock))
+				_show_enemy_pick(rock_scene)
+			elif(Table.cards.Scissors in Table.enemyHand):
+				Table.pick = Table.cards.Scissors
+				Table.enemy_actual_hand -= 1
+				Table.played = false
+				Table.enemyHand.pop_at(Table.enemyHand.find(Table.cards.Scissors))
+				_show_enemy_pick(scissors_scene)
+			elif(Table.cards.Paper in Table.enemyHand):
+				Table.pick = Table.cards.Paper
+				Table.enemy_actual_hand -= 1
+				Table.played = false
+				Table.enemyHand.pop_at(Table.enemyHand.find(Table.cards.Paper))
+				_show_enemy_pick(paper_scene)
+	if(Table.enemy_actual_hand == 0):
+		all_cards_played = true
+		Table.enemyHand = [7,7,7]
+	if(Table.enemy_actual_hand > 0):
+		all_cards_played = false
+				
 func _enemy_pick():
 	if(Table.played == true):
 		randomize()
@@ -86,6 +155,7 @@ func _instance_enemy_hand():
 					_instance_card(enemy_rock)
 				elif (Table.enemyHand[n] == Table.cards.Scissors):
 					_instance_card(enemy_scissors)
+		print(Table.enemyHand)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_fillDeck()
@@ -95,6 +165,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	_re_instance_enemy_hand()
+	_enemy_strongest_pick()
 	_enemy_pick()
 	_drawed_3()
+	_debug_button()
 	pass

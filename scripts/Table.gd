@@ -39,8 +39,10 @@ var enemy_actual_hand = 0
 var enemy_hand_size = 3
 var player_choice
 var enemy_cards
+
 var score_player = 0
 var score_enemy = 0
+
 var delete_paper = 13
 var delete_rock = 14
 var delete_scissors = 15
