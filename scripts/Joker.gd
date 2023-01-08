@@ -6,7 +6,7 @@ extends Node2D
 # var b = "text"
 var mouse_over = false
 var deleted = false
-var texture = preload("res://icon.png")
+var texture = preload("res://sprites/Joker.png")
 var dup
 # Called when the node enters the scene tree for the first time.
 func _delete_card():

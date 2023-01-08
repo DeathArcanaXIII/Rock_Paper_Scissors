@@ -2,9 +2,6 @@ extends Sprite
 
 enum cards_2 {Paper = 0, Scissors = 2}
 
-func _debug_button():
-	if(Input.is_action_just_pressed("Enemy_hand")):
-		print(Table.enemyHand)
 func _debug_reset():
 	if(Input.is_action_just_pressed("DEBUG")):
 		 choice
@@ -228,5 +225,4 @@ func _process(delta):
 	_enemy_strongest_pick()
 	_enemy_pick()
 	_drawed_3()
-	_debug_button()
 	pass

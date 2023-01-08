@@ -1,5 +1,13 @@
 extends Sprite
 
+func _debug_button():
+	if(Input.is_action_just_pressed("Enemy_hand")):
+		print("Deck Oponente: ", Table.deck)
+		print("Mão Oponente: ", Table.enemyHand)
+		print("Deck Jogador: ", deck)
+		print("Mão Jogador: ", playerHand)
+
+
 enum cards_2 {Paper = 0, Scissors = 2}
 
 var mouse_over = false
@@ -55,13 +63,13 @@ func _drawed_3():#Ajusta as posições das cartas
 
 func _ready():
 	_fillDeck()
-	print(deck)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	_instance_player_hand()
 	_drawed_3()
+	_debug_button()
 	pass
 
 func _on_Area2D_mouse_entered():
