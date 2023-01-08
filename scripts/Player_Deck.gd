@@ -10,14 +10,16 @@ var deck_position = 0
 var scene_paper = preload("res://scenes/Paper.tscn")
 var scene_rock = preload("res://scenes/Rock.tscn")
 var scene_scissors = preload("res://scenes/Scissors.tscn")
-
+var scene_joker = preload("res://scenes/Joker.tscn")
 func _fillDeck(): #Preenche a Array e embaralha os elementos da mesma
-	for n in range (0,5,+1):
+	for n in range (0,4,+1):
 		deck[n] = Table.cards.Paper
-	for n in range (5,10,+1):
+	for n in range (4,8,+1):
 		deck[n] = Table.cards.Rock
-	for n in range(10,15,+1):
+	for n in range(8,12,+1):
 		deck[n] = Table.cards.Scissors
+	for n in range (12,15,+1):
+		deck[n] = Table.cards.Joker
 	randomize()
 	deck.shuffle()
 
@@ -44,7 +46,8 @@ func _instance_player_hand(): #Ao clicar checa a validez da jogada e gera 3 cart
 				_instance_card(scene_rock)
 			elif (playerHand[n] == Table.cards.Scissors):
 				_instance_card(scene_scissors)
-
+			elif(playerHand[n] == Table.cards.Joker):
+				_instance_card(scene_joker)
 func _drawed_3():#Ajusta as posições das cartas
 	if(Table.draw_three == 3):
 		Table.xAxys = 512
@@ -52,6 +55,7 @@ func _drawed_3():#Ajusta as posições das cartas
 
 func _ready():
 	_fillDeck()
+	print(deck)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

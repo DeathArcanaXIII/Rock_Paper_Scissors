@@ -1,6 +1,6 @@
 extends Node
 
-enum cards {Paper = 0, Rock = 1, Scissors = 2}
+enum cards {Paper = 0, Rock = 1, Scissors = 2, Joker = 3}
 
 onready var deck_00 = preload("res://scenes/Player_Deck.tscn")
 onready var deck_01 = preload("res://scenes/Enemy_Deck.tscn")
