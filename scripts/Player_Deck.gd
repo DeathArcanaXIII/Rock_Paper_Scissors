@@ -42,11 +42,16 @@ func _instance_card(scene_instance):
 	Table.draw_three += 1#confirma se 3 cartas foram compradas
 	Table.paper_total -= 1
 
+func _deck_shuffle():
+	if(mouse_over == true && Input.is_action_just_pressed("mouse_right_click")):
+		randomize()
+		deck.shuffle()
+	
 func _instance_player_hand(): #Ao clicar checa a validez da jogada e gera 3 cartas na mão do jogador baseado na posição do "apontador" da array
 	if (mouse_over == true && Table.deck_size > 0 && Table.actual_hand < 3 && Input.is_action_just_pressed("mouse_left_click")):
 		for n in range (0,3,+1): #Colocar as cartas do topo na mão do jogador e salva a ultima posição
-			playerHand[n] = deck[deck_position]
-			deck_position += 1
+			playerHand[n] = deck[0]
+			deck.pop_front()
 		for n in range (0,3,+1): #Instanceia as cartas da mão do jogador
 			if (playerHand[n] == Table.cards.Paper):
 				_instance_card(scene_paper)
@@ -70,6 +75,7 @@ func _process(delta):
 	_instance_player_hand()
 	_drawed_3()
 	_debug_button()
+	_deck_shuffle()
 	pass
 
 func _on_Area2D_mouse_entered():
