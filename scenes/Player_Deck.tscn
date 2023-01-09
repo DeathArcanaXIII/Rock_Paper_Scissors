@@ -28,5 +28,13 @@ margin_right = -88.0
 margin_bottom = -166.0
 script = ExtResource( 3 )
 
+[node name="Button" type="Button" parent="Player_Deck"]
+margin_left = -41.0
+margin_top = -115.0
+margin_right = 42.0
+margin_bottom = -95.0
+text = "Embaralhar"
+
 [connection signal="mouse_entered" from="Player_Deck/Area2D" to="Player_Deck" method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="Player_Deck/Area2D" to="Player_Deck" method="_on_Area2D_mouse_exited"]
+[connection signal="pressed" from="Player_Deck/Button" to="Player_Deck" method="_on_Button_pressed"]
