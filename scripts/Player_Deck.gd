@@ -19,6 +19,25 @@ var scene_paper = preload("res://scenes/Paper.tscn")
 var scene_rock = preload("res://scenes/Rock.tscn")
 var scene_scissors = preload("res://scenes/Scissors.tscn")
 var scene_joker = preload("res://scenes/Joker.tscn")
+
+func _Mulligan():
+	Table.score_enemy += 1
+	for n in range(0,3,+1):
+		deck.push_back(playerHand[0])
+		playerHand.pop_front()
+		randomize()
+		deck.shuffle()
+		playerHand.push_back(deck[0])
+		deck.pop_front()
+		if (playerHand[n] == Table.cards.Paper):
+			_instance_card(scene_paper)
+		elif(playerHand[n] == Table.cards.Rock):
+			_instance_card(scene_rock)
+		elif (playerHand[n] == Table.cards.Scissors):
+			_instance_card(scene_scissors)
+		elif(playerHand[n] == Table.cards.Joker):
+			_instance_card(scene_joker)
+
 func _fillDeck(): #Preenche a Array e embaralha os elementos da mesma
 	for n in range (0,4,+1):
 		deck[n] = Table.cards.Paper
@@ -56,6 +75,7 @@ func _instance_player_hand(): #Ao clicar checa a validez da jogada e gera 3 cart
 				_instance_card(scene_scissors)
 			elif(playerHand[n] == Table.cards.Joker):
 				_instance_card(scene_joker)
+
 func _drawed_3():#Ajusta as posições das cartas
 	if(Table.draw_three == 3):
 		Table.xAxys = 512
@@ -86,3 +106,12 @@ func _on_Button_pressed():
 	deck.shuffle()
 	pass # Replace with function body.
  # Replace with function body.
+
+
+func _on_Mulligan_pressed():
+	if(Table.draw_three == 3 && Table.deck_size == 12):
+		_Mulligan()
+		Table.xAxys = 512
+		Table.deck_size += 3
+		
+	pass # Replace with function body.

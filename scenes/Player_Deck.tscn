@@ -35,6 +35,14 @@ margin_right = 42.0
 margin_bottom = -95.0
 text = "Embaralhar"
 
+[node name="Mulligan" type="Button" parent="Player_Deck"]
+margin_left = -40.0
+margin_top = -144.0
+margin_right = 40.0
+margin_bottom = -124.0
+text = "Mulligan"
+
 [connection signal="mouse_entered" from="Player_Deck/Area2D" to="Player_Deck" method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="Player_Deck/Area2D" to="Player_Deck" method="_on_Area2D_mouse_exited"]
 [connection signal="pressed" from="Player_Deck/Button" to="Player_Deck" method="_on_Button_pressed"]
+[connection signal="pressed" from="Player_Deck/Mulligan" to="Player_Deck" method="_on_Mulligan_pressed"]
