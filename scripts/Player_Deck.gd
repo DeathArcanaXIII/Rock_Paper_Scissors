@@ -43,7 +43,7 @@ func _instance_card(scene_instance):
 	Table.paper_total -= 1
 	
 func _instance_player_hand(): #Ao clicar checa a validez da jogada e gera 3 cartas na mão do jogador baseado na posição do "apontador" da array
-	if (mouse_over == true && Table.deck_size > 0 && Table.actual_hand < 3 && Input.is_action_just_pressed("mouse_left_click")):
+	if (mouse_over == true && Table.deck_size > 0 && Table.actual_hand < 1 && Input.is_action_just_pressed("mouse_left_click")):
 		for n in range (0,3,+1): #Colocar as cartas do topo na mão do jogador e salva a ultima posição
 			playerHand[n] = deck[0]
 			deck.pop_front()
@@ -85,3 +85,4 @@ func _on_Button_pressed():
 	randomize()
 	deck.shuffle()
 	pass # Replace with function body.
+ # Replace with function body.

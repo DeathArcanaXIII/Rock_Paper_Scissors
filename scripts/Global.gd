@@ -1,47 +1,5 @@
 extends Node
 # Called when the node enters the scene tree for the first time.
-func _debug_reset():
-		Table.paper_total = 5
-		Table.rock_total = 5
-		Table.scissors_total = 5
-
-		Table.enemy_paper_total = 5
-		Table.enemy_rock_total = 5
-		Table.enemy_scissors_total = 5
-
-		Table.enemy_choice = [7,7,7]
-
-		Table.deck = [7,7,7,7,7,7,7,7,7,7,7,7,7,7,7] 
-		Table.enemyHand = [7,7,7]
-		Table.deck_position = -0
-		Table.pick
-		Table.result = false
-
-		Table.layer = 0
-
-		Table.played = false
-		Table.player_deck
-		Table.enemy_deck
-		Table.mouse_over = false
-		Table.deck_size = 15
-		Table.enemy_deck_size = 15
-		Table.max_hand_size = 3
-		Table.actual_hand = 0
-		Table.xAxys = 512
-		Table.yAxys = 580
-		Table.draw_three = 0
-		Table.enemy_actual_hand = 0
-		Table.enemy_hand_size = 3
-		Table.player_choice
-		Table.enemy_cards
-
-		Table.score_player = 0
-		Table.score_enemy = 0
-
-		Table.delete_paper = 13
-		Table.delete_rock = 14
-		Table.delete_scissors = 15
-		get_tree().reload_current_scene()
 
 func _enemy_deck_count_fix():
 	if(Table.enemy_deck_size == -3):

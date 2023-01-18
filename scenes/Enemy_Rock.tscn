@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://sprites/Enemy_Back.png" type="Texture" id=1]
+[ext_resource path="res://sprites/Enemy_Rock.png" type="Texture" id=1]
 
 [node name="Main" type="Node2D"]
 

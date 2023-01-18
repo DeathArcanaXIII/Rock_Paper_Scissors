@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="Rock Paper Scissor 2.0"
+config/name="Rock Paper Scissor"
 run/main_scene="res://scenes/Main Menu.tscn"
 config/icon="res://icon.png"
 

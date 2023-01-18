@@ -75,7 +75,7 @@ func _on_Button_pressed():
 	Table.deck = [7,7,7,7,7,7,7,7,7,7,7,7,7,7,7] 
 	Table.enemyHand = [7,7,7]
 	Table.deck_position = -0
-	Table.pick
+	Table.pick 
 	Table.result = false
 
 	Table.layer = 0
